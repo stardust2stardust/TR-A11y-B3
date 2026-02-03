@@ -1786,10 +1786,11 @@ div.tr-page-container div.main-content {
 
 <style>
 body {
-  --focus-outline-color: pink;
+  --focus-outline-color:#e279fd ;
   --skiplink-bg-color: black;
   --skiplink-font-color: white;
 }
+
 /* Added for A11y */
 /* skip links */
 .visually-hidden:not(:focus):not(:active) {
@@ -1809,11 +1810,17 @@ body {
 }
 
 /* focus visible */
-a:focus-visible, a.dropdown-toggle:focus-visible {
+a:focus-visible, 
+a.dropdown-toggle:focus-visible,
+.slick-slide.slick-active:focus-visible {
   outline-width: 3px;
   outline-style: solid;
   outline-color: var(--focus-outline-color);
   outline-offset: 2px;
 }
+#logo {
+  overflow: visible ;
+}
+ 
 
 </style>
