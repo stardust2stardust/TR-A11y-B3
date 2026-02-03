@@ -1785,6 +1785,11 @@ div.tr-page-container div.main-content {
 
 
 <style>
+body {
+  --focus-outline-color: pink;
+  --skiplink-bg-color: black;
+  --skiplink-font-color: white;
+}
 /* Added for A11y */
 /* skip links */
 .visually-hidden:not(:focus):not(:active) {
@@ -1798,14 +1803,16 @@ div.tr-page-container div.main-content {
 .visually-hidden:focus {
   padding: .5em;
   position: absolute;
-  background-color: red;
-  color: white;
+  background-color: var(--skiplink-bg-color);
+  color: var(--skiplink-font-color);
   z-index: 1000;
 }
 
 /* focus visible */
-:focus-visible {
-  outline: 3px solid [[S80:focus-outline-color]];
+a:focus-visible, a.dropdown-toggle:focus-visible {
+  outline-width: 3px;
+  outline-style: solid;
+  outline-color: var(--focus-outline-color);
   outline-offset: 2px;
 }
 
