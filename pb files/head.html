@@ -209,7 +209,7 @@ $("#title_container").text("Form a Team");
 <style type="text/css"> 
 #header {
 	background-color: [[S80:header-background-color]];
-	background-image: url([[S80:header-background-image]]);
+	/* background-image: url([[S80:header-background-image]]); */
      /* overflow:hidden; */
 }
 
@@ -1812,7 +1812,10 @@ body {
 /* focus visible */
 a:focus-visible, 
 a.dropdown-toggle:focus-visible,
-.slick-slide.slick-active:focus-visible {
+li.slick-slide.slick-current.slick-active:focus-visible,
+input:focus-visible, 
+.form-control:focus-visible,
+.btn:focus-visible {
   outline-width: 3px;
   outline-style: solid;
   outline-color: var(--focus-outline-color);
@@ -1821,6 +1824,7 @@ a.dropdown-toggle:focus-visible,
 #logo {
   overflow: visible ;
 }
+
  
 
 </style>
