@@ -151,25 +151,7 @@ adaptiveHeight:true,
     });
   }
 
-  // Add play/pause button functionality
-let isPlaying = !prefersReducedMotion;
 
-$('.carousel-control').on('click', function() {
-  const $button = $(this);
-  const $carousel = $('.your-carousel');
-  
-  if (isPlaying) {
-    $carousel.slick('slickPause');
-    $button.attr('aria-label', 'Play carousel');
-    $button.find('.control-text').text('Play');
-    isPlaying = false;
-  } else {
-    $carousel.slick('slickPlay');
-    $button.attr('aria-label', 'Pause carousel');
-    $button.find('.control-text').text('Pause');
-    isPlaying = true;
-  }
-});
 
 	if ($('#leaderboards a').length ) {
     	}else {
@@ -1038,7 +1020,7 @@ div.custom-wysiwyg-text p {
 
 #footer {
 	background-color:[[S80:footer-background-color]];
-	background-image: url('[[S80:footer-background-image]]');
+	/* background-image: url('[[S80:footer-background-image]]'); */
         color: [[S80:footer-font-color]];
      
 }
