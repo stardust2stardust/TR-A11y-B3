@@ -134,19 +134,42 @@ jQuery('.localeSelect').change(function() {
 window.location = jQuery('.localeSelect option:selected').val();
 });
 
+// Check user's motion preference
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 [[?xentryx::x[[S334:pg]]x::
   if ($('.rslides li').length > 1) {
       $('.rslides').slick({
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true,
+        autoplay: !prefersReducedMotion,
         autoplaySpeed: 5000,
         arrows: false,
 lazyLoad: 'ondemand',
 adaptiveHeight:true,
     });
   }
+
+  // Add play/pause button functionality
+let isPlaying = !prefersReducedMotion;
+
+$('.carousel-control').on('click', function() {
+  const $button = $(this);
+  const $carousel = $('.your-carousel');
+  
+  if (isPlaying) {
+    $carousel.slick('slickPause');
+    $button.attr('aria-label', 'Play carousel');
+    $button.find('.control-text').text('Play');
+    isPlaying = false;
+  } else {
+    $carousel.slick('slickPlay');
+    $button.attr('aria-label', 'Pause carousel');
+    $button.find('.control-text').text('Pause');
+    isPlaying = true;
+  }
+});
 
 	if ($('#leaderboards a').length ) {
     	}else {
@@ -1708,7 +1731,7 @@ P, LI, OL, UL, TABLE, TR, TH, TD, .Explicit, div.responsive {font-size:16px !imp
   top:0; left:0;
   width: 100%;
   background: [[S80:header-background-color]];
-  background-image: url([[S80:header-background-image]]);
+  /* background-image: url([[S80:header-background-image]]); */
   z-index: 10000;
 }
 
